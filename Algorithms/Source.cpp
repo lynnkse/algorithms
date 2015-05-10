@@ -27,6 +27,29 @@ void c_reverse(T array[], int size)
 }
 
 // sort algorithm
+template<typename T>
+void c_sort(T array[], int size)
+{
+	T buffer;
+	bool swap = false;
+	while (true)
+	{
+		for (int i = 0; i < size - 1; i++)
+		{
+			if (array[i] > array[i + 1])
+			{
+				buffer = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = buffer;
+				swap = true;
+				break;
+			}
+			swap = false;
+		}
+		if (swap == false)
+			return;
+	}
+}
 
 //print functor
 template<typename T>
@@ -42,8 +65,8 @@ public:
 //main 
 int main()
 {
-	int a[5] = { 1, 2, 3, 4, 5 };
+	int a[5] = { 3, 7, 12, 4, 50 };
 	Print<int> p;
-	c_reverse(a, 5);
+	c_sort(a, 5);
 	c_for_each(a, 5, p);
 }
